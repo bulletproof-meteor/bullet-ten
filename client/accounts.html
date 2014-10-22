@@ -1,0 +1,30 @@
+<head>
+  <title>Hello world</title>
+</head>
+
+<body>
+   {{>account}}
+</body>
+
+<template name="account">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          {{> loginButtons align="right"}}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {{#if currentUser}}
+    <p class="col-md-offset-1">
+    {{#if currentUser.services.twitter}}
+        congrats. You have successfully connected a twitter account
+        <button class="btn btn-primary" id="remove-twitter-account" >Remove Twitter account</button>
+    {{else}}
+      <button class="btn btn-primary" id="connect-twitter-account" >Connect Twitter account</button>
+    {{/if}}
+    </p>
+  {{/if}}
+</template>
